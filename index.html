@@ -120,6 +120,35 @@
     </ul>
   </div>
   
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-firestore.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBFp6p3254EbhlttlJ3dHIJPoX3c89yV04",
+    authDomain: "game-guide-2ac94.firebaseapp.com",
+    databaseURL: "https://game-guide-2ac94.firebaseio.com",
+    projectId: "game-guide-2ac94",
+    storageBucket: "game-guide-2ac94.appspot.com",
+    messagingSenderId: "494214168061",
+    appId: "1:494214168061:web:217d6aaab918cab4ea6d94"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  //make auth and firestore reference
+  const auth = firebase.auth();
+  
+</script>
+
+
+
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="scripts/auth.js"></script>
