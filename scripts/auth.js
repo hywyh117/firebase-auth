@@ -2,15 +2,32 @@
 auth.onAuthStateChanged((user) => {
   if (user) {
     setupUI(user);
-    db.collection("guides")
-      .get()
-      .then((snapshot) => {
-        setupGuides(snapshot.docs);
-      });
+    db.collection("guides").onSnapshot((snapshot) => {
+      setupGuides(snapshot.docs);
+    });
   } else {
     setupUI();
     setupGuides([]);
   }
+});
+
+//create new guide
+const createForm = document.querySelector("#create-form");
+createForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  db.collection("guides")
+    .add({
+      title: createForm.title.value,
+      content: createForm.content.value,
+    })
+    .then(() => {
+      const modal = document.querySelector("#modal-create");
+      M.Modal.getInstance(modal).close();
+      createForm.reset();
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
 });
 
 // sign up
